@@ -4,6 +4,12 @@
 
 using namespace std;
 
+Wood :: Wood (WoodType type, float length, float width, float height)           //constructor
+{
+    set_length(length);
+    set_width (width);
+    set_height (height);
+}
 
 bool Wood :: set_length (float l)
 {
@@ -38,17 +44,17 @@ bool Wood :: set_height (float h)
         return false;
 }
 
-float Wood :: get_length ()
+float Wood :: get_length () const
 {
     return length;
 }
 
-float Wood :: get_width ()
+float Wood :: get_width () const
 {
     return width;
 }
 
-float Wood :: get_height ()
+float Wood :: get_height () const
 {
     return height;
 }
@@ -81,17 +87,33 @@ bool Tool :: set_size (int s)
         return false;
 }
 
-string Tool :: get_name()
+string Tool :: get_name() const
 {
     return name_tool;
 }
 
-int Tool :: get_type()
+int Tool :: get_type() const
 {
     return type_tool;
 }
 
-int Tool :: get_size ()
+int Tool :: get_size () const
 {
     return size_tool;
+}
+
+bool Saw :: set_size (int s)
+{
+    if (s == 1 || s == 2 || s == 3)                     //The number entered must be 1, 2, or 3
+    {
+        size = s;
+        return true;
+    }
+    else
+        return false;
+}
+
+int Saw :: get_size () const
+{
+    return size;
 }

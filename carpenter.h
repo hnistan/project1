@@ -17,23 +17,19 @@ enum WoodType
 class Wood
 {
     public : 
-        Wood (WoodType woodtype) : type (woodtype)         //constructor
-        {
-            
-        }
+        Wood (WoodType woodtype, float length, float width, float height);  
         bool set_length (float l);
         bool set_width (float w);
         bool set_height (float h);
-        float get_length ();
-        float get_width ();
-        float get_height ();
+        float get_length () const;
+        float get_width () const;
+        float get_height () const;
 
     private :
         float length;                          
         float width;                           
         float height; 
-        const WoodType type;                       
-
+        WoodType type;                       
 };
 
 class Tool
@@ -42,15 +38,26 @@ class Tool
         string set_name(string n);
         bool set_type (int t);
         bool set_size (int s);
-        int get_size ();
-        string get_name ();
-        int get_type ();
+        int get_size () const;
+        string get_name () const;
+        int get_type () const;
 
     private :
         string name_tool;
         int type_tool;                         //electric or non-electric   (0 for non-electric, 1 for electric)
         int size_tool;                         //3 for big, 2 for medium, 1 for little
 
+};
+
+class Saw
+{
+    public :
+        bool set_size (int size);
+        int get_size () const;
+
+    private :
+        int size;                            //3 for big, 2 for medium, 1 for little
+        int number_of_times_used = 0;
 };
 
 
